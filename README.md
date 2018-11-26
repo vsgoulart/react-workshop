@@ -19,10 +19,9 @@ Installation through create-react-app
 
 ## Why React?
 
-- Simple
+- Simple API
 - Declarative
 - Composable components
-- Simple API
 - Fast learning curve
 
 ## [What is JSX?](https://reactjs.org/docs/introducing-jsx.html)
