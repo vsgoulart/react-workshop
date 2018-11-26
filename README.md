@@ -19,6 +19,12 @@ Installation through create-react-app
 
 ## Why React?
 
+- Simple
+- Declarative
+- Composable components
+- Simple API
+- Fast learning curve
+
 ## [What is JSX?](https://reactjs.org/docs/introducing-jsx.html)
 
 JavaScript extension with XML-like syntax used to describe how UI is going to look like
