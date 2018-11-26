@@ -1,44 +1,164 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React workshop - session 1
 
-## Available Scripts
+## How to start a React project?
 
-In the project directory, you can run:
+Installation through create-react-app
 
-### `npm start`
+## JavaScript concepts
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [let](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) / [const](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)
+- [Fat arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+- [Object / array destructuring, rest operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+- [Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
+- [Template strings](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)
+- [map/filter/reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## [What is React?](https://reactjs.org/tutorial/tutorial.html#what-is-react)
 
-### `npm test`
+> React is a declarative, efficient, and flexible JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called “components”.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Why React?
 
-### `npm run build`
+## [What is JSX?](https://reactjs.org/docs/introducing-jsx.html)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+JavaScript extension with XML-like syntax used to describe how UI is going to look like
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```javascript
+// this
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+;<div className="shopping-list">
+  <h1>Shopping List for {props.name}</h1>
+  <ul>
+    <li>Sugar</li>
+    <li>Bread</li>
+    <li>Onions</li>
+  </ul>
+</div>
 
-### `npm run eject`
+// transpiles to this
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+React.createElement(
+  'div',
+  { className: 'shopping-list' },
+  React.createElement('h1', null, 'Shopping List for ', props.name),
+  React.createElement(
+    'ul',
+    null,
+    React.createElement('li', null, 'Sugar'),
+    React.createElement('li', null, 'Bread'),
+    React.createElement('li', null, 'Onions')
+  )
+)
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+https://babeljs.io/repl/#?presets=react
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## What are props?
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Props are the way to pass data to a component, it can be accessed through `this.props` or the argument of a stateless functional component
 
-## Learn More
+```javascript
+function App() {
+  return <Greetings person="Albert" />
+}
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+class Greetings extends Component {
+  render() {
+    return <h1>Hello {this.props.person}!</h1>
+  }
+}
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+// or
+
+function Greetings(props) {
+  return <h1>Hello {props.person}!</h1>
+}
+```
+
+## What is state?
+
+State is the data that exists inside a class component and can be accessed through `this.state`. A state change triggers the update lifecycle of a component
+
+```javascript
+class App extends Components {
+  state = {
+    clicks: 0,
+  }
+
+  handleClick = () => {
+    this.setState(state => ({
+      clicks: state.clicks + 1,
+    }))
+  }
+
+  render() {
+    return (
+      <>
+        <span>Number of clicks: {this.state.clicks}</span>
+        <button onClick={this.handleClick}>CLICK ME!</button>
+      </>
+    )
+  }
+}
+```
+
+- https://reactjs.org/docs/react-component.html#setstate
+- https://github.com/wkda/admin-frontend-common/blob/master/packages/hiding-reasons/src/components/AddHidingReasonForm.js#L82
+
+## What is the component lifecycle?
+
+Methods that you can use to operate on different instants of time on the component's life
+
+### Mounting component lifecycle order
+
+1. [`constructor()`](https://reactjs.org/docs/react-component.html#constructor)
+2. [`static getDerivedStateFromProps()`](https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops)
+3. [`render()`](https://reactjs.org/docs/react-component.html#render)
+4. [`componentDidMount()`](https://reactjs.org/docs/react-component.html#componentdidmount)
+
+### Updating component lifecycle order
+
+1. [`static getDerivedStateFromProps()`](https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops)
+2. [`shouldComponentUpdate()`](https://reactjs.org/docs/react-component.html#shouldcomponentupdate)
+3. [`render()`](https://reactjs.org/docs/react-component.html#render)
+4. [`getSnapshotBeforeUpdate()`](https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate)
+5. [`componentDidUpdate()`](https://reactjs.org/docs/react-component.html#componentdidupdate)
+
+### Unmounting component order
+
+1. [`componentWillUnmount()`](https://reactjs.org/docs/react-component.html#componentwillunmount)
+
+### Component error handling order
+
+1. [`static getDerivedStateFromError()`](https://reactjs.org/docs/react-component.html#static-getderivedstatefromerror)
+2. [`componentDidCatch()`](https://reactjs.org/docs/react-component.html#componentdidcatch)
+
+- https://reactjs.org/docs/react-component.html#the-component-lifecycle
+- http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+- https://reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class
+
+## Which types of components do we have in React?
+
+```javascript
+// stateless functional component
+function Foo() {
+  return <span>foo</span>
+}
+
+// class component
+class Foo extends React.Component {
+  render() {
+    return <span>foo</span>
+  }
+}
+
+// pure component
+class Foo extends React.PureComponent {
+  render() {
+    return <span>foo</span>
+  }
+}
+```
+
+- https://reactjs.org/docs/react-api.html#reactcomponent
+- https://reactjs.org/docs/react-api.html#reactpurecomponent
