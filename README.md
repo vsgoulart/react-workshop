@@ -133,9 +133,15 @@ Methods that you can use to operate on different instants of time on the compone
 1. [`static getDerivedStateFromError()`](https://reactjs.org/docs/react-component.html#static-getderivedstatefromerror)
 2. [`componentDidCatch()`](https://reactjs.org/docs/react-component.html#componentdidcatch)
 
-- https://reactjs.org/docs/react-component.html#the-component-lifecycle
-- http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
-- https://reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class
+### Deprecated lifecycles
+
+- [`UNSAFE_componentWillMount()`](https://reactjs.org/docs/react-component.html#unsafe_componentwillmount)
+- [`UNSAFE_componentWillUpdate()`](https://reactjs.org/docs/react-component.html#unsafe_componentwillupdate)
+- [`UNSAFE_componentWillReceiveProps()`](https://reactjs.org/docs/react-component.html#unsafe_componentwillreceiveprops)
+
+* https://reactjs.org/docs/react-component.html#the-component-lifecycle
+* http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+* https://reactjs.org/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class
 
 ## Which types of components do we have in React?
 
