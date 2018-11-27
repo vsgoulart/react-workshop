@@ -1,0 +1,11 @@
+function foo() {
+  if (true) {
+    var a = 1
+    const b = 2
+    let c = 3
+  }
+
+  console.log(a) // expected output: 1
+  console.log(b) // expected output: undefined
+  console.log(c) // expected output: undefined
+}
