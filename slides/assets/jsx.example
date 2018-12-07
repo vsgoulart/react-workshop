@@ -1,0 +1,10 @@
+// this
+
+;<div className="shopping-list">
+  <h1>Shopping List for {props.name}</h1>
+  <ul>
+    <li>Sugar</li>
+    <li>Bread</li>
+    <li>Onions</li>
+  </ul>
+</div>

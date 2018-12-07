@@ -8,6 +8,10 @@ import {
   Quote,
   Cite,
   Link,
+  Appear,
+  List,
+  ListItem,
+  Text,
 } from 'spectacle'
 import createTheme from 'spectacle/lib/themes/default'
 require('normalize.css')
@@ -144,6 +148,199 @@ export default class Presentation extends React.Component {
               </Link>
             </Cite>
           </BlockQuote>
+        </Slide>
+        <Slide>
+          <Heading size="2" textColor="tertiary">
+            Why React?
+          </Heading>
+          <List>
+            <Appear fid="1">
+              <ListItem>Simple API</ListItem>
+            </Appear>
+            <Appear fid="2">
+              <ListItem>Declarative</ListItem>
+            </Appear>
+            <Appear fid="3">
+              <ListItem>Composable components</ListItem>
+            </Appear>
+            <Appear fid="4">
+              <ListItem>Fast learning curve</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+        <Slide>
+          <Heading size="2" textColor="tertiary">
+            What is JSX?
+          </Heading>
+          <Appear>
+            <Text>
+              JavaScript extension with XML-like syntax used to describe how UI
+              is going to look like
+            </Text>
+          </Appear>
+        </Slide>
+        <Slide>
+          <Heading size="2" textColor="tertiary">
+            What is JSX?
+          </Heading>
+          <CodePane
+            lang="javascript"
+            textSize="24"
+            source={require('raw-loader!../assets/jsx.example')}
+          />
+        </Slide>
+        <Slide>
+          <Heading size="2" textColor="tertiary">
+            What is JSX?
+          </Heading>
+          <CodePane
+            lang="javascript"
+            textSize="24"
+            source={require('raw-loader!../assets/jsxTranspiled.example')}
+          />
+        </Slide>
+        <Slide>
+          <Heading size="2" textColor="tertiary">
+            What are props?
+          </Heading>
+          <Appear>
+            <Text>
+              Props are the way to pass data to a component, it can be accessed
+              through `this.props` or the argument of a stateless functional
+              component
+            </Text>
+          </Appear>
+        </Slide>
+        <Slide>
+          <Heading size="2" textColor="tertiary">
+            What are props?
+          </Heading>
+          <CodePane
+            lang="javascript"
+            textSize="24"
+            source={require('raw-loader!../assets/props.example')}
+          />
+        </Slide>
+        <Slide>
+          <Heading size="2" textColor="tertiary">
+            What is state?
+          </Heading>
+          <Appear>
+            <Text>
+              State is the data that exists inside a class component and can be
+              accessed through `this.state`. A state change triggers the update
+              lifecycle of a component
+            </Text>
+          </Appear>
+        </Slide>
+        <Slide>
+          <CodePane
+            lang="javascript"
+            textSize="24"
+            source={require('raw-loader!../assets/state.example')}
+          />
+        </Slide>
+        <Slide>
+          <Heading size="2" textColor="tertiary">
+            What is the component lifecycle?
+          </Heading>
+          <Appear>
+            <Text>
+              Methods that you can use to operate on different instants of time
+              on the component's life
+            </Text>
+          </Appear>
+        </Slide>
+        <Slide>
+          <Heading size="3" textColor="tertiary">
+            Mounting lifecycle order
+          </Heading>
+          <List>
+            <ListItem>constructor()</ListItem>
+            <ListItem>static getDerivedStateFromProps()</ListItem>
+            <ListItem>render()</ListItem>
+            <ListItem>componentDidMount()</ListItem>
+          </List>
+        </Slide>
+        <Slide>
+          <Heading size="3" textColor="tertiary">
+            Mounting lifecycle order
+          </Heading>
+          <List>
+            <ListItem>constructor()</ListItem>
+            <ListItem>render()</ListItem>
+            <ListItem>componentDidMount()</ListItem>
+          </List>
+        </Slide>
+        <Slide>
+          <Heading size="3" textColor="tertiary">
+            Updating lifecycle order
+          </Heading>
+          <List>
+            <ListItem>static getDerivedStateFromProps()</ListItem>
+            <ListItem>shouldComponentUpdate()</ListItem>
+            <ListItem>render()</ListItem>
+            <ListItem>getSnapshotBeforeUpdate()</ListItem>
+            <ListItem>componentDidUpdate()</ListItem>
+          </List>
+        </Slide>
+        <Slide>
+          <Heading size="3" textColor="tertiary">
+            Updating lifecycle order
+          </Heading>
+          <List>
+            <ListItem>render()</ListItem>
+            <ListItem>componentDidUpdate()</ListItem>
+          </List>
+        </Slide>
+        <Slide>
+          <Heading size="3" textColor="tertiary">
+            Unmounting component order
+          </Heading>
+          <List>
+            <ListItem>componentWillUnmount()</ListItem>
+          </List>
+        </Slide>
+        <Slide>
+          <Heading size="3" textColor="tertiary">
+            Component error handling order
+          </Heading>
+          <List>
+            <ListItem>static getDerivedStateFromError()</ListItem>
+            <ListItem>componentDidCatch()</ListItem>
+          </List>
+        </Slide>
+        <Slide>
+          <Heading size="3" textColor="tertiary">
+            Deprecated lifecycle hooks
+          </Heading>
+          <List>
+            <ListItem>UNSAFE_componentWillMount()</ListItem>
+            <ListItem>UNSAFE_componentWillUpdate()</ListItem>
+            <ListItem>UNSAFE_componentWillReceiveProps()</ListItem>
+          </List>
+        </Slide>
+        <Slide>
+          <Heading size="3" textColor="tertiary">
+            Deprecated lifecycle hooks
+          </Heading>
+          <List>
+            <ListItem>componentWillMount()</ListItem>
+            <ListItem>componentWillUpdate()</ListItem>
+            <ListItem>componentWillReceiveProps()</ListItem>
+          </List>
+        </Slide>
+        <Slide>
+          <Heading size="2" textColor="tertiary">
+            Which types of components do we have in React?
+          </Heading>
+        </Slide>
+        <Slide>
+          <CodePane
+            lang="javascript"
+            textSize="24"
+            source={require('raw-loader!../assets/componentTypes.example')}
+          />
         </Slide>
       </Deck>
     )

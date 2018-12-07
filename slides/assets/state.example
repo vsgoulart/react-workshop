@@ -1,0 +1,20 @@
+class App extends Components {
+  state = {
+    clicks: 0,
+  }
+
+  handleClick = () => {
+    this.setState(state => ({
+      clicks: state.clicks + 1,
+    }))
+  }
+
+  render() {
+    return (
+      <>
+        <span>Number of clicks: {this.state.clicks}</span>
+        <button onClick={this.handleClick}>CLICK ME!</button>
+      </>
+    )
+  }
+}

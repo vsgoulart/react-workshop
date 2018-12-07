@@ -3,7 +3,7 @@ const numbers = [10, 20, 30]
 numbers.map(function(number) {
   return number + 1
 })
-// expected output: [31, 41, 51]
+// expected output: [11, 21, 31]
 
 numbers.filter(number => number !== 20)
 // expected output: [10, 30]

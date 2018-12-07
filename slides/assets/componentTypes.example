@@ -1,0 +1,18 @@
+// stateless functional component
+function Foo() {
+  return <span>foo</span>
+}
+
+// class component
+class Foo extends React.Component {
+  render() {
+    return <span>foo</span>
+  }
+}
+
+// pure component
+class Foo extends React.PureComponent {
+  render() {
+    return <span>foo</span>
+  }
+}

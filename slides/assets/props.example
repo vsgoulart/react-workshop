@@ -1,0 +1,15 @@
+function App() {
+  return <Greetings person="Albert" />
+}
+
+class Greetings extends Component {
+  render() {
+    return <h1>Hello {this.props.person}!</h1>
+  }
+}
+
+// or
+
+function Greetings(props) {
+  return <h1>Hello {props.person}!</h1>
+}
