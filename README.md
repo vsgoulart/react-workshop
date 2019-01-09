@@ -2,7 +2,7 @@
 
 ## How to start a React project?
 
-Installation through create-react-app
+Installation through [create-react-app](https://facebook.github.io/create-react-app/)
 
 ## JavaScript concepts
 
